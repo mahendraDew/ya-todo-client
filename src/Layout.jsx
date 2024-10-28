@@ -1,12 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { User } from 'lucide-react'; // You can replace this with a user icon or your preferred icon library.
+import { ChartNoAxesColumnIcon, User } from 'lucide-react'; // You can replace this with a user icon or your preferred icon library.
 import { useNavigate } from 'react-router-dom';
+// const {REACT_APP_TESTHOST} = process.env;
 
 const Layout = ({ user, children }) => {
   const navigate = useNavigate();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
-
+ 
   const handleLogout = () => {
     // Logic to handle user logout
     console.log('User logged out');
@@ -49,6 +50,15 @@ const Layout = ({ user, children }) => {
           ></span>
         </div>
         <div className="flex items-center relative">
+        <div className='flex gap-4'>
+
+          <button
+            className="border hover:bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded"
+            onClick={() => navigate('/about')}
+            >
+            About
+          </button>
+          |
           {user ? (
             <>
              { user.avatar ? <img
@@ -74,26 +84,19 @@ const Layout = ({ user, children }) => {
               )}
             </>
           ) : (
-            <div className='flex gap-4'>
-
+            
               <button
-                className="border hover:bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded"
+                className="bg-gray-800 hover:bg-gray-600 text-white text-sm px-3 py-1 rounded"
                 onClick={() => navigate('/signin')}
                 >
                 signin
               </button>
-
-              <button
-                className="bg-gray-800 hover:bg-gray-600 text-white text-sm px-3 py-1 rounded"
-                onClick={() => navigate('/signup')}
-                >
-                signup
-              </button>
-            </div>
           )}
+          </div>
         </div>
       </nav>
-      <main className="flex-grow ">{children}</main>
+      <main className="flex-grow ">
+        {children}</main>
       <footer className="bg-gray-50 py-3 text-center">
           <p className="text-gray-600">© 2024 YA Todo App. All rights reserved.</p>
         </footer>

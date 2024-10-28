@@ -7,7 +7,7 @@ const About = () => {
                 
             <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4 text-center">
                 <h1 className="text-5xl font-bold text-gray-600 mb-6">
-                    I Got Frustrated While Building a Component
+                    I Got <span className='underline'>Frustrated</span> While Building a Component
                 </h1>
                 <p className="text-lg text-gray-700 mb-4 max-w-lg">
                     So there I was, knee-deep in another project, wondering if I even knew 

@@ -266,14 +266,13 @@ export default function TodoBoard () {
         id: draggedTodo._id,
         progress: newProgress,
       };
-      console.log("draggedTodo: ", draggedTodo);
-      console.log("newProgress: ", newProgress);
-      console.log("body from handledroptodo:",body);
+      
       const response = await axios.put(ApiRoutes.changeProgress, JSON.stringify(body), config );
   
       // Get the updated todo data
       const updatedTodo = response.data;
-      console.log('updatedTodo:', updatedTodo);
+      console.log("todo got updated")
+      // console.log('updatedTodo:', updatedTodo);
       // Update the local state with the updated todo
       setTodos(prevTodos =>
         prevTodos.map(todo =>

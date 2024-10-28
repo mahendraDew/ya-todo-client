@@ -1,4 +1,8 @@
-const host = "http://localhost:3000";
+// require('dotenv').config;
+
+// const host = "http://localhost:3000";
+const host = "https://ya-todo-server.vercel.app";
+
 
 export const ApiRoutes = {
     signup: `${host}/api/v1/user/signup`,

@@ -33,10 +33,10 @@ const SignIn = () => {
       }
       const body = JSON.stringify({email, password});
       const res = await axios.post(ApiRoutes.login, body, config);
-      console.log(res);
+      // console.log(res);
       const data = await res.data;
-      console.log(data);
-      if (res.statusText == "OK") {
+      // console.log(data);
+      if (res.status == 200) {
         // Handle successful sign-in, e.g., store tokens and redirect.
         // You might want to store a token or user data in localStorage or context.
         localStorage.setItem('token', data.token); // Example: storing JWT token.
@@ -47,7 +47,7 @@ const SignIn = () => {
       }
 
     } catch (error) {
-      setError('An error occurred. Please try again later.');
+      setError('Oops! seems like your email or password is incorrect. Please try it again.');
     }
   };
 
