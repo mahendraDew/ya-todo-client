@@ -16,14 +16,14 @@ function App() {
       <div className="App">
         {/* Define navigation routes */}
         <Routes>
-          <Route path="/" element={<Home />} />         {/* Home route */}
-          <Route path="/home" element={<Home />} />         {/* Home route */}
-          <Route path="/signup" element={<Signup />} />         {/* Home route */}
-          <Route path="/verify" element={<Verify />} />         {/* Home route */}
-          <Route path="/signin" element={<SignIn />} />         {/* Home route */}
-          <Route path="/about" element={<About />} />   {/* About route */}
-          <Route path="/todo" element={user ? <TodoBoard /> : <Navigate to="/home" />} /> {/* Route for the TodoApp */}
-          <Route path="*" element={<Error />} /> {/* Route for the TodoApp */}
+          <Route path="/" element={<Home />} />        
+          <Route path="/home" element={<Home />} />        
+          <Route path="/signup" element={<Signup />} />        
+          <Route path="/verify" element={<Verify />} />        
+          <Route path="/signin" element={<SignIn />} />        
+          <Route path="/about" element={<About />} />   
+          <Route path="/todo" element={user ? <TodoBoard /> : <Navigate to="/home" />} /> 
+          <Route path="*" element={<Error />} /> 
           {/* Add more routes as needed */}
         </Routes>
       </div>
