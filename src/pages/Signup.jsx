@@ -7,6 +7,8 @@ const Signup = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -22,13 +24,16 @@ const Signup = () => {
       const body = JSON.stringify({username, email, password});
       const res = await axios.post(ApiRoutes.signup, body, config);
 
-      if(res.status === 200){
+      if(res.status == 200){
         // todo: add otpverification route here
         navigate('/signin')
+      }else {
+        setError('Email Already exists try login in.');
       }
       
       
     } catch (error) {
+      setError("Email already exists try loggin in with this email. Or use different email!")
       console.log(error);
     }
    
@@ -42,6 +47,7 @@ const Signup = () => {
             className="bg-white shadow-md rounded-lg p-8 max-w-sm w-full"
           >
             <h2 className="text-2xl font-bold mb-6 text-center">Sign Up</h2>
+            {error && <p className="text-red-500 text-sm mb-2">{error}</p>}
             <div className="mb-4">
               <label className="block text-gray-700 mb-1">Username</label>
               <input
@@ -78,6 +84,15 @@ const Signup = () => {
             >
               Sign Up
             </button>
+            <p className="text-gray-600 text-sm mt-4">
+              Already have account?{' '}
+              <button
+                className="text-blue-500 hover:underline"
+                onClick={() => navigate('/signin')}
+              >
+                sign in
+              </button>
+            </p>
           </form>
         </main>
 
